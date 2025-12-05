@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <!-- meta keyword -->
+        <meta name="keywords" content="Save Your Contacts easily.">
+        <!-- meta description -->
+        <meta name="description" content="You can save your contacts easily with this app.">
+        <!-- meta author -->
+        <meta name="author" content="El-Sayed Mohammed Mokdam">
+        <!-- Title -->
+        <title>ContactHub - Smart Contact Manager</title>
+        <!-- Favicon -->
+        <link rel="icon" href="./Images/favicon.png">
+        <!-- Meta viewport -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Link Bootstrap CSS -->
+        <link rel="stylesheet" href="./css/bootstrap.min.css">
+        <!-- Link Google Fonts -->
+        <link rel="stylesheet" href="./Fonts/Roboto-VariableFont_wdth,wght.ttf">
+        <!-- Link Fontawsome (Icons)-->
+        <link rel="stylesheet" href="./css/all.min.css">
+        <!-- Link Media Query -->
+        <link rel="stylesheet" href="./css/media.css">
+        <!-- Link CSS -->
+        <link rel="stylesheet" href="./css/index.css">
+    </head>
+    <body>
+        <!-- Navbar -->
+        <nav class="navbar my-bg-white border-navbar p-md-3 fixed-top">
+            <div class="container d-flex justify-content-between align-items-center">
+                <!-- Logo & Text -->
+                <div class="nav-left d-flex gap-3 align-items-center">
+                    <div class="logo p-3 from-violet-600-to-indego-600 text-white rounded-4">
+                        <i class="fa-solid fa-address-book fa-lg"></i>
+                    </div>
+                    <div class="text">
+                        <h1 class="mb-0 h3 fw-bold my-text-black">
+                            Contact
+                            <span class="my-text-violet-600">Hub</span>
+                        </h1>
+                        <p class="mb-0 my-text-gray-500 fs-7 d-none d-md-block">Smart Contact Manager</p>
+                    </div>
+                </div>
+                <!-- Navbar left (Button - image - icons) -->
+                <div class="nav-right d-flex align-items-center gap-3">
+                    <!-- Button trigger modal -->
+                    <button
+                        type="button"
+                        class="btn from-violet-600-to-indego-600 text-white fw-bold d-none d-md-block"
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModalScrollable"
+                    >
+                        <span>
+                            <i class="fa-solid fa-plus"></i>
+                        </span>
+                        Add Contact
+                    </button>
+                    <button
+                        type="button"
+                        class="btn from-violet-600-to-indego-600 text-white fw-bold d-block d-md-none"
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModalScrollable"
+                    >
+                        <span>
+                            <i class="fa-solid fa-plus"></i>
+                        </span>
+                        Add
+                    </button>
+                    <!-- Scrollable Modal -->
+                    <div class="modal fade" id="exampleModalScrollable" tabindex="-1">
+                        <div class="modal-dialog modal-dialog-scrollable">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title my-text-black fw-bold">Add New Contact</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div>
+                                        <div class="w-25 my-text-white from-blue-400-to-blue-600 text-center mx-auto p-5 d-flex align-items-center justify-content-center rounded-circle">
+                                            <i class="fa-solid fa-user fa-2xl"></i>
+                                        </div>
+                                        <label for="photo" class="form-label my-text-black fw-bold"></label>
+                                        <input type="file" class="form-control" id="photo">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="contactName" class="form-label my-text-black fw-bold">
+                                            Full Name
+                                            <span class="my-text-red-600">*</span>
+                                        </label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            id="contactName"
+                                            placeholder="Enter full name"
+                                            required
+                                            autocomplete="on"
+                                            oninput="validateAllInputs(this)"
+                                        >
+                                        <p class="alert alert-danger d-none" id="errorName">Name should contain only letters and spaces (2-50 characters)</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="contactPhone" class="form-label my-text-black fw-bold">
+                                            Phone Number
+                                            <span class="my-text-red-600">*</span>
+                                        </label>
+                                        <input
+                                            type="tel"
+                                            class="form-control"
+                                            id="contactPhone"
+                                            placeholder="e.g, 01012823674"
+                                            autocomplete="on"
+                                            required
+                                            oninput="validateAllInputs(this)"
+                                        >
+                                        <p class="alert alert-danger d-none" id="errorPhone">Please enter a valid Egyptian phone number</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="contactEmail" class="form-label my-text-black fw-bold">Email Address</label>
+                                        <input
+                                            type="email"
+                                            class="form-control"
+                                            id="contactEmail"
+                                            placeholder="name@example.com"
+                                            autocomplete="on"
+                                            oninput="validateAllInputs(this)"
+                                        >
+                                        <p class="alert alert-danger d-none" id="errorEmail">Please enter a valid email address</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="adress" class="form-label my-text-black fw-bold">Address</label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            id="adress"
+                                            placeholder="Enter address"
+                                            autocomplete="on"
+                                        >
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="group" class="form-label my-text-black fw-bold">Group</label>
+                                        <select name="group" id="group" class="form-control">
+                                            <option selected disabled>Select Group</option>
+                                            <option value="Family">Family</option>
+                                            <option value="Friends">Friends</option>
+                                            <option value="Work">Work</option>
+                                            <option value="Profession">Profession</option>
+                                            <option value="School">School</option>
+                                            <option value="Others">Others</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="description" class="form-label my-text-black fw-bold">Notes</label>
+                                        <textarea
+                                            name="description"
+                                            id="description"
+                                            class="form-control w-100"
+                                            rows="3"
+                                            placeholder="Add Notes about this contact..."
+                                        ></textarea>
+                                    </div>
+                                    <div class="mb-3 d-flex flex-wrap flex-md-nowrap">
+                                        <div class="form-check d-flex align-items-center w-100">
+                                            <input class="form-check-input me-3" type="checkbox" id="favourateCheck">
+                                            <label class="form-check-label my-text-gray-500" for="favourateCheck">
+                                                <span class="my-text-amber-200">
+                                                    <i class="fa-solid fa-star"></i>
+                                                </span>
+                                                Favorite
+                                            </label>
+                                        </div>
+                                        <div class="form-check d-flex align-items-center w-100">
+                                            <input class="form-check-input me-3" type="checkbox" id="emergencyCheck">
+                                            <label class="form-check-label my-text-gray-500" for="emergencyCheck">
+                                                <span class="my-text-red-600">
+                                                    <i class="fa-solid fa-heart-pulse"></i>
+                                                </span>
+                                                Emergency
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer d-flex flex-wrap flex-md-nowrap justify-content-between">
+                                    <button
+                                        type="button"
+                                        class="btn my-bg-gray-200 fw-bold w-100 bg-hover-gray-300"
+                                        id="close"
+                                        data-bs-dismiss="modal"
+                                    >
+                                        Cancel
+                                    </button>
+                                    <button
+                                        type="button"
+                                        class="btn from-violet-600-to-indego-600 text-white fw-bold w-100"
+                                        id="saveContact"
+                                        onclick="addNewContact()"
+                                    >
+                                        <span>
+                                            <i class="fa-solid fa-check"></i>
+                                        </span>
+                                        Save Contact
+                                    </button>
+                                    <button type="button" class="btn from-violet-600-to-indego-600 text-white fw-bold w-100 d-none" id="updateContact">
+                                        <span>
+                                            <i class="fa-solid fa-check"></i>
+                                        </span>
+                                        Update Contact
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="my-text-gray-700 p-2 d-none d-md-block bg-hover-gray-300 rounded-3">
+                        <i class="fa-solid fa-bell fa-sm"></i>
+                    </div>
+                    <div class="my-text-gray-700 p-2 d-none d-md-block bg-hover-gray-300 rounded-3">
+                        <i class="fa-solid fa-gear fa-sm"></i>
+                    </div>
+                    <div class="nav-image">
+                        <img
+                            src="./Images/avatar-4.jpg"
+                            alt="avatar"
+                            class="rounded-3"
+                            width="40"
+                            height="40"
+                        >
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- Header -->
+        <header class="pt-5">
+            <!-- I will Make form for sign up and login --></header>
+        <main class="my-bg-gray-100 pt-5 pb-5">
+            <div class="container">
+                <section class="generate-qr pt-5">
+                    <h4 class="my-text-indigo-700 text-center fw-bold border border-2 my-bg-gray-200 rounded-4 p-3 w-fit mx-auto">Generate QR Code for Phone Number</h4>
+                    <input
+                        type="tel"
+                        id="phoneNumber"
+                        class="form-control"
+                        placeholder="Enter phone number (e.g., +15551234567)"
+                        oninput="validateAllInputs(this)"
+                    >
+                    <p class="alert alert-danger d-none" id="errorPhoneQR">Please enter a valid Egyptian phone number</p>
+                    <button class="btn w-100 from-emerald-500-to-green-700 text-white fw-bold mt-3" title="Call this number" onclick="callPhoneNumber()">Call</button>
+                    <button class="btn w-100 from-violet-600-to-indego-600 text-white fw-bold mt-3" title="generate QR Code" onclick="generatePhoneNumberQR()">Generate QR Code</button>
+                    <div id="qrcode-container" class="mt-3"></div>
+                </section>
+                <!-- Total & Favorites & Emergency Contacts -->
+                <section class="tot-fav-em pt-5">
+                    <div class="row g-4 pt-4">
+                        <!-- Total card -->
+                        <div class="col-md-4">
+                            <div class="total d-flex gap-3 align-items-center p-4 my-bg-white rounded-4 general-box-shadow general-hover-shadow" id="totalContactsCard">
+                                <div class="my-text-white from-blue-400-to-blue-600 icon-size p-4 d-flex align-items-center justify-content-center rounded-4">
+                                    <i class="fa-solid fa-users fa-lg"></i>
+                                </div>
+                                <div class="total-info d-flex flex-column">
+                                    <h3 class="mb-0 fw-bold my-text-gray-500 h6">TOTAL</h3>
+                                    <p class="mb-0 fw-bold my-text-black" id="totalContacts"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Favorites card -->
+                        <div class="col-md-4">
+                            <div class="favorites d-flex gap-3 align-items-center p-4 my-bg-white rounded-4 general-box-shadow general-hover-shadow">
+                                <div class="my-text-white from-amber-400-to-amber-500 icon-size p-4 d-flex align-items-center justify-content-center rounded-4">
+                                    <i class="fa-solid fa-star fa-lg"></i>
+                                </div>
+                                <div class="favorites-info d-flex flex-column">
+                                    <h3 class="mb-0 fw-bold my-text-gray-500 h6">FAVORITES</h3>
+                                    <p class="mb-0 fw-bold my-text-black" id="favouriteContacts"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Emergency card -->
+                        <div class="col-md-4">
+                            <div class="emergency d-flex gap-3 align-items-center p-4 my-bg-white rounded-4 general-box-shadow general-hover-shadow" id="emergencyContactsCard">
+                                <div class="my-text-white from-red-500-to-red-600 icon-size p-4 d-flex align-items-center justify-content-center rounded-4">
+                                    <i class="fa-solid fa-heart-pulse fa-lg"></i>
+                                </div>
+                                <div class="emergency-info d-flex flex-column">
+                                    <h3 class="mb-0 fw-bold my-text-gray-500 h6">EMERGENCY</h3>
+                                    <p class="mb-0 fw-bold my-text-black" id="emergencyContacts"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="all-contacts-containers mt-5">
+                    <div class="container">
+                        <div class="row g-4">
+                            <div class="col-xl-8">
+                                <div class="text-center text-md-start d-flex flex-column flex-md-row justify-content-between align-items-center">
+                                    <div>
+                                        <h3 class="mb-0 h2 fw-bold my-text-black">All Contacts</h3>
+                                        <p class="my-text-gray-500">
+                                            Manage and organize your
+                                            <span id="NCS"></span>
+                                            contacts
+                                        </p>
+                                    </div>
+                                    <button class="btn from-red-500-to-red-600 text-white fw-bold mb-4 mb-md-0" id="deleteAll" onclick="deleteAllContacts()">Delete All Contacts</button>
+                                </div>
+                                <input
+                                    type="search"
+                                    id="inputSearch"
+                                    class="form-control"
+                                    aria-describedby="passwordHelpBlock"
+                                    placeholder="Search by name, phone or email...."
+                                    autocomplete="on"
+                                    oninput="displayContacts(this)"
+                                >
+                                <div class="row g-4 mt-4 p-2" id="rowData"></div>
+                            </div>
+                            <div class="col-xl-4">
+                                <div class="inner d-flex flex-column gap-3">
+                                    <!-- Favourate Cards (parent) -->
+                                    <div class="favoirates-container my-bg-white rounded-4 w-100 general-box-shadow">
+                                        <div class="header-favoirates d-flex gap-3 align-items-center p-4 my-bg-amber-50 rounded-top-4">
+                                            <div class="my-text-white from-amber-400-to-amber-500 icon-size p-4 d-flex align-items-center justify-content-center rounded-4">
+                                                <i class="fa-solid fa-star fa-lg"></i>
+                                            </div>
+                                            <div class="favorites-info d-flex flex-column">
+                                                <h3 class="mb-0 fw-bold my-text-black h6">Favourites</h3>
+                                                <p class="mb-0 fs-7 my-text-gray-500">Quick access to starred contacts</p>
+                                            </div>
+                                        </div>
+                                        <div class="footer-favourates p-3" id="favourate-contact-cards"></div>
+                                    </div>
+                                    <!-- Emergency Cards (parent) -->
+                                    <div class="emergency-container my-bg-white rounded-4 w-100 general-box-shadow">
+                                        <div class="header-emergency d-flex gap-3 align-items-center p-4 my-bg-red-50 rounded-top-4">
+                                            <div class="my-text-white from-red-500-to-red-600 icon-size p-4 d-flex align-items-center justify-content-center rounded-4">
+                                                <i class="fa-solid fa-heart-pulse fa-lg"></i>
+                                            </div>
+                                            <div class="emergency-info d-flex flex-column">
+                                                <h3 class="mb-0 fw-bold my-text-black h6">Emergency</h3>
+                                                <p class="mb-0 fs-7 my-text-gray-500">Important contacts for urgent calls</p>
+                                            </div>
+                                        </div>
+                                        <div class="footer-emergency p-3" id="emergency-contact-cards"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+        <!-- Link JS -->
+        <script src="./js/index.js"></script>
+        <!-- Link Bootstrap JS -->
+        <script src="./js/bootstrap.bundle.min.js"></script>
+        <!-- Link sweetalert library -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <!-- Link QR Code library -->
+        <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    </body>
+</html>
