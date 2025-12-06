@@ -770,6 +770,42 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
+.hover-shadow-violet-200 {
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+}
+
+.hover-shadow-violet-200:hover {
+  box-shadow: 0 15px 30px var(--color-violet-200);
+}
+
+.hover-shadow-green-200 {
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+}
+
+.hover-shadow-green-200:hover {
+  box-shadow: 0 15px 30px var(--color-green-200);
+}
+
+.hover-shadow-red-200 {
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+}
+
+.hover-shadow-red-200:hover {
+  box-shadow: 0 15px 30px var(--color-red-200);
+}
+
 .bg-hover-amber-50 {
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
