@@ -251,7 +251,11 @@
                         oninput="validateAllInputs(this)"
                     >
                     <p class="alert alert-danger d-none" id="errorPhoneQR">Please enter a valid Egyptian phone number</p>
-                    <button class="btn w-100 from-emerald-500-to-green-700 text-white fw-bold mt-3" title="Call this number" onclick="callPhoneNumber()">Call</button>
+                    <button class="btn w-100 from-emerald-500-to-green-700 text-white fw-bold mt-3" title="Call this number" onclick="callPhoneNumber()">Call
+                        <span>
+                            <i class="fa-solid fa-phone fa-xs"></i>
+                        </span>
+                    </button>
                     <button class="btn w-100 from-violet-600-to-indego-600 text-white fw-bold mt-3" title="generate QR Code" onclick="generatePhoneNumberQR()">Generate QR Code</button>
                     <div id="qrcode-container" class="mt-3"></div>
                 </section>

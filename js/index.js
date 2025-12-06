@@ -305,7 +305,7 @@ function displayFavorates() {
             favouratesBox += `
                 <div class="contact-card mb-3 p-3 my-bg-gray-100 rounded-3 bg-hover-amber-50 d-flex justify-content-between align-items-center cursor-pointer bg-hover-green-700">
                     <div class="d-flex gap-3 align-items-center">
-                        <div class="contact-avatar icon-size p-4 d-flex align-items-center justify-content-center rounded-4 from-violet-600-to-indego-600 text-white fw-bold">
+                        <div class="contact-avatar icon-size p-4 d-flex align-items-center justify-content-center rounded-4 from-violet-600-to-indego-600 text-white fw-bold" title="${allContacts[i].description}">
                             ${allContacts[i].name.charAt(0).toUpperCase()}
                         </div>
                         <div class="contact-name">
@@ -314,7 +314,7 @@ function displayFavorates() {
                         </div>
                     </div>
                     <div>
-                        <a href="tel:${allContacts[i].phone}" class="btn btn-tel my-bg-green-200 my-text-green-700 rounded-3">
+                        <a href="tel:${allContacts[i].phone}" class="btn btn-tel my-bg-green-200 my-text-green-700 rounded-3" title="Call ${allContacts[i].name}">
                             <i class="fa-solid fa-phone"></i>
                         </a>
                     </div>
@@ -341,7 +341,7 @@ function displayEmergencies() {
             emergenciesBox += `
             <div class="contact-card mb-3 p-3 my-bg-gray-100 rounded-3 bg-hover-red-50 d-flex justify-content-between align-items-center cursor-pointer bg-hover-red-600">
                 <div class="d-flex gap-3 align-items-center">
-                    <div class="contact-avatar icon-size p-4 d-flex align-items-center justify-content-center rounded-4 from-violet-600-to-indego-600 text-white fw-bold">
+                    <div class="contact-avatar icon-size p-4 d-flex align-items-center justify-content-center rounded-4 from-violet-600-to-indego-600 text-white fw-bold" title="${allContacts[i].description}">
                         ${allContacts[i].name.charAt(0).toUpperCase()}
                     </div>
                     <div class="contact-name">
@@ -350,7 +350,7 @@ function displayEmergencies() {
                     </div>
                 </div>
                 <div>
-                    <a href="tel:${allContacts[i].phone}" class="btn btn-tel my-bg-red-200 my-text-red-600 rounded-3">
+                    <a href="tel:${allContacts[i].phone}" class="btn btn-tel my-bg-red-200 my-text-red-600 rounded-3" title="Call ${allContacts[i].name}">
                         <i class="fa-solid fa-phone"></i>
                     </a>
                 </div>
@@ -362,11 +362,13 @@ function displayEmergencies() {
 
 // Change Favourates:
 function favourateContact(index) {
+    console.log("Favourates :",index);
     if (allContacts[index].favourate) {
         allContacts[index].favourate = false;
     } else {
         allContacts[index].favourate = true;
     }
+    localStorage.setItem("contacts", JSON.stringify(allContacts));
     displayContacts();
     displayFavorates();
     displayTotalContacts();
@@ -374,11 +376,13 @@ function favourateContact(index) {
 
 // Change Emergencies:
 function emergencyContact(index) {
+    console.log("Emergency :",index);
     if (allContacts[index].emergency) {
         allContacts[index].emergency = false;
     } else {
         allContacts[index].emergency = true;
     }
+    localStorage.setItem("contacts", JSON.stringify(allContacts));
     displayContacts();
     displayEmergencies();
     displayTotalContacts();
@@ -402,7 +406,7 @@ function displayContacts(element) {
                             <div class="item my-bg-white rounded-4 w-100 general-box-shadow general-hover-shadow">
                                 <div class="item-top p-3 d-flex gap-3 flex-column p-4">
                                     <div class="icon-name-phone d-flex gap-3 align-items-center">
-                                        <div class="icon icon-size p-4 d-flex align-items-center justify-content-center rounded-4 from-violet-600-to-indego-600 text-white fw-bold position-relative">
+                                        <div class="icon icon-size p-4 d-flex align-items-center justify-content-center rounded-4 from-violet-600-to-indego-600 text-white fw-bold position-relative cursor-pointer" title="${allContacts[i].description}">
                                             ${allContacts[i].name.charAt(0).toUpperCase()}
                                             ${checkStar(allContacts[i].favourate)}
                                             ${checkHeart(allContacts[i].emergency)}
@@ -427,12 +431,12 @@ function displayContacts(element) {
                                 <div class="item-footer p-3 d-flex align-items-center justify-content-between">
                                     <div class="phone-email d-flex gap-3">
                                         <div class="bg-hover-green-200 rounded-3">
-                                            <a href="tel:${allContacts[i].phone}" class="btn btn-tel my-bg-green-200 my-text-green-700 rounded-3">
+                                            <a href="tel:${allContacts[i].phone}" class="btn btn-tel my-bg-green-200 my-text-green-700 rounded-3" title="Call ${allContacts[i].name}">
                                                 <i class="fa-solid fa-phone"></i>
                                             </a>
                                         </div>
                                         ${allContacts[i].email ? `<div class="bg-hover-indigo-200 rounded-3">
-                                            <a href="mailto:${allContacts[i].email}" class="btn btn-email my-bg-indigo-200 my-text-indigo-500 rounded-3">
+                                            <a href="mailto:${allContacts[i].email}" class="btn btn-email my-bg-indigo-200 my-text-indigo-500 rounded-3" title="Email ${allContacts[i].name}">
                                                 <i class="fa-solid fa-envelope"></i>
                                             </a>
                                         </div>` : ""}
