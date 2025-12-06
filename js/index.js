@@ -444,10 +444,10 @@ function displayContacts(element) {
                                         <button class="btn btn-heart my-text-gray-400 cursor-pointer border-0" title="Emergency" onclick="emergencyContact(${i})">
                                             <i class="fa-solid fa-heart-pulse"></i>
                                         </button>
-                                        <a class="btn btn-edit my-text-gray-500 bg-hover-indigo-200 rounded-3" onclick="editContact(${i})" id="editBtn" title="Edit">
+                                        <a class="btn btn-edit my-text-gray-500 bg-hover-indigo-200 rounded-3 border-0" onclick="editContact(${i})" id="editBtn" title="Edit">
                                             <i class="fa-solid fa-pen"></i>
                                         </a>
-                                        <a class="btn btn-remove my-text-gray-500 bg-hover-red-200 rounded-3" onclick="deleteContact(${i})" title="Remove">
+                                        <a class="btn btn-remove my-text-gray-500 bg-hover-red-200 rounded-3 border-0" onclick="deleteContact(${i})" title="Remove">
                                             <i class="fa-solid fa-trash"></i>
                                         </a>
                                     </div>
