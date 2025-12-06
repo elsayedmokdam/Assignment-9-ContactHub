@@ -578,7 +578,7 @@ function editContact(index) {
 
         localStorage.setItem("contacts", JSON.stringify(allContacts));
         updateUI();
-
+        clearAllInputFields();
         updateContact.classList.add("d-none");
         saveContact.classList.remove("d-none");
 
