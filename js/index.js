@@ -281,7 +281,7 @@ function checkEmergency(emergency) {
             <div class="no-contacts p-4">
                 <p class="mb-0 fs-7 my-text-gray-500 text-center">No Contacts Yet</p>
             </div>`;
-        contactCards.innerHTML = contactsBox;
+        rowData.innerHTML = contactsBox;
         return;
     }
     displayContacts();
@@ -625,3 +625,16 @@ function validateAllInputs(element) {
         return false;
     }
 }
+
+var navImage = document.getElementById("navImage");
+var lightContainer = document.getElementById("lightContainer");
+var closeImage = document.getElementById("closeImage");
+
+navImage.addEventListener("click", function () {
+    lightContainer.classList.toggle("d-none");
+    console.log("clicked");
+});
+
+closeImage.addEventListener("click", function () {
+    lightContainer.classList.add("d-none");
+});

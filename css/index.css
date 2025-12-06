@@ -952,3 +952,9 @@ body {
 #deleteAll {
   width: 100%;
 }
+
+.light-container {
+  width: 300px;
+  height: 300px;
+  margin: 100px auto;
+}

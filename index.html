@@ -216,10 +216,10 @@
                     <div class="my-text-gray-700 p-2 d-none d-md-block bg-hover-gray-300 rounded-3">
                         <i class="fa-solid fa-gear fa-sm"></i>
                     </div>
-                    <div class="nav-image">
+                    <div class="nav-image cursor-pointer" id="navImage">
                         <img
                             src="./Images/me.jpg"
-                            alt="avatar"
+                            alt="Elsayed Mokdam"
                             class="rounded-3"
                             width="40"
                             height="40"
@@ -230,9 +230,16 @@
         </nav>
         <!-- Header -->
         <header>
-            <!-- I will Make form for sign up and login -->
-        </header>
+            <!-- I will Make form for sign up and login --></header>
         <main class="my-bg-gray-100 pt-5 pb-5">
+            <div class="light-container d-none d-flex justify-content-center align-items-center position-fixed top-0 start-0 bottom-0 end-0" id="lightContainer">
+                <span class="position-absolute top-0 end-0 p-2 cursor-pointer" id="closeImage">
+                    <i class="fa-solid fa-close fa-xl"></i>
+                </span>
+                <div class="box w-100 h-100 rounded-4" id="box">
+                    <img src="./Images/me.jpg" class="w-100 rounded-4" alt="Elsayed Mokdam">
+                </div>
+            </div>
             <div class="container">
                 <section class="generate-qr pt-5">
                     <h4 class="my-text-indigo-700 text-center fw-bold border border-2 my-bg-gray-200 rounded-4 p-3 w-fit mx-auto">Generate QR Code for Phone Number</h4>
