@@ -597,9 +597,9 @@ function editContact(index) {
 function validateAllInputs(element) {
     var text = element.value;
     var regex = {
-        contactName: /^[\p{L}\p{M}'\-\s]+$/u, // regex support all languages and spaces
-        contactPhone: /^^(002)?(\+2)?01[0125][0-9]{8}$/, 
-        phoneNumber: /^^(002)?(\+2)?01[0125][0-9]{8}$/,
+        contactName: /^[\p{L}\p{M}\s\-.']+$/u, // regex support all languages and spaces
+        contactPhone: /^(002\s?)?(\+2[0]?\s?)?0?1[0125]\s?[0-9]{8}$/, 
+        phoneNumber: /^(002\s?)?(\+2[0]?\s?)?0?1[0125]\s?[0-9]{8}$/,
         contactEmail: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
     };
     
